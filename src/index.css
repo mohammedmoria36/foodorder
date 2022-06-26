@@ -1,13 +1,209 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+}
+
+.my-nav {
+  background-color: #ef4f5f !important;
+  z-index: 11;
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+.cm-cont-css {
+  height: 100vh;
+}
+
+.first-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ef4f5f;
+}
+
+.second-container {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  height: calc(100vh - 40px) !important;
+}
+
+.first-container h1 {
+  font-size: 52px;
+}
+
+button {
+  border-radius: 25px;
+  border: none;
+  padding: 10px 26px;
+}
+
+button.dark-btn {
+  background-color: #d41b27;
+  color: #fff;
+}
+
+button.light-btn {
+  border: 1px solid #000;
+}
+
+.cont-img-div img {
+  max-width: 100%;
+}
+
+.cont-text-div {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.cm-cont-css h2 {
+  font-size: 40px;
+}
+
+.cm-cont-css p {
+  font-size: 16px;
+}
+
+.type-sym {
+  display: inline-block;
+  padding: 3px;
+}
+
+.type-sym.veg {
+  border: 2px solid green;
+}
+
+.type-sym.nonveg {
+  border: 2px solid tomato;
+}
+
+.sym {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
+.type-sym.nonveg .sym {
+  background-color: tomato;
+}
+
+.type-sym.veg .sym {
+  background-color: green;
+}
+
+.card-discri {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 21px;
+  max-height: 48px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cat-img img {
+  max-width: 60%;
+}
+
+.chk-header-row {
+  border-bottom: 2px solid black;
+  padding-bottom: 20px;
+}
+
+.chk-row {
+  border-bottom: 1px solid #b8b8b8;
+  padding: 10px 0;
+}
+
+.chk-row h3 {
+  font-size: 18px;
+}
+
+.chk-row p {
+  font-size: 15px;
+  color: gray;
+}
+
+.chk-button {
+  position: sticky;
+  top: 70px;
+  z-index: 11;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chk-button button, .chk1-button button {
+  background-color: #d41b27;
+  color: #fff;
+}
+
+.chk1-button {
+  padding-top: 100px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chk1-button button {
+  display: flex;
+  flex-flow: column;
+  justify-content: center !important;
+  align-items: center;
+}
+
+.suc-icon {
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.suc-icon img {
+  max-width: 100%;
+}
+
+.third-container {
+  background-color: #ef4f5f;
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  height: calc(100vh - 40px) !important;
+}
+
+.chk-container {
+  height: 100vh;
+}
+
+.count-sp {
+  background-color: #cbcbcb;
+  margin: 0 10px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-prod-btn button {
+  padding: 10px 20px;
+  border-radius: 2px;
+  background-color: #d41b27;
+  color: #fff;
+}
+
+.cs-btn-primary {
+  background-color: #d41b27;
+  color: #fff;
+  border: none;
+}
+
+.cs-btn-primary:hover,.add-prod-btn button:hover{
+  background-color: #940912;
+  transition: 1s;
 }
