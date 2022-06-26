@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setCart, setData,setCheckoutAvailable } from '../../features/products/produtsSlice';
+import { setCart, setData, setCheckoutAvailable } from '../../features/products/produtsSlice';
 import { useNavigate } from 'react-router-dom';
 import Nav from "../nav/Nav";
 import sucIcon from '../../shared/images/success_tick_icon.png';
+import { useState } from 'react';
 
 
 function Checkout() {
@@ -10,6 +11,7 @@ function Checkout() {
     const data = useSelector((state) => state.prods.data);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [showPayed, setShowPayed] = useState(false);
 
     let showFinalAmount = () => {
         let totalAmount = cartList.reduce((acc, crr) => {
@@ -61,15 +63,32 @@ function Checkout() {
         dispatch(setCheckoutAvailable(ischeckoutPresent))
     }
 
+    let payAmount = () => {
+        let innerdata = JSON.parse(JSON.stringify(data));
+        Object.keys(innerdata).map((key) => {
+            for (let index = 0; index < innerdata[key]['list'].length; index++) {
+                const element = innerdata[key]['list'][index];
+                element['isCart'] = false;
+            }
+        })
+        console.log(innerdata, 'INERR')
+        setShowPayed(true);
+        dispatch(setCheckoutAvailable(false));
+        dispatch(setData(innerdata));
+        dispatch(setCart(innerdata));
+    }
+
     return (
         <div className="main-container">
             <Nav />
             {cartList?.length === 0 &&
                 <div className="d-flex chk-container chk1-button justify-content-center align-item-center">
                     {/* <div className='suc-icon'><img src={sucIcon} alt="..."/></div> */}
-                    <button className='' onClick={() => navigate('/products')}>Back to products</button>
+                    {showPayed === true && <h1>Your Order is Successfully Placed</h1>}
+                    <button onClick={() => navigate('/products')}>Back to products</button>
                 </div>
             }
+
             {cartList?.length !== 0 && <div className="container chk-container">
                 <h2>Checkout</h2>
                 <div className='row mt-5 chk-header-row'>
@@ -104,23 +123,24 @@ function Checkout() {
                     )
                 })}
                 <div className='my-5 d-flex justify-content-end'>
-                    <h1>SubTotal:- {showFinalAmount()}</h1>
+                    <h1>Total:- {showFinalAmount()}</h1>
+                    <button className='cs-btn-primary ms-3' style={{ padding: '5px 35px' }} onClick={() => payAmount()}>Pay</button>
                 </div>
             </div>}
             <div className='container'>
-                    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                        <p class="col-md-4 mb-0 text-muted">Foody © 2022 Company, Inc</p>
+                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <p class="col-md-4 mb-0 text-muted">Foody © 2022 Company, Inc</p>
 
-                        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 
-                        </a>
+                    </a>
 
-                        <ul class="nav col-md-4 justify-content-end">
-                            <li class="nav-item"><a style={{cursor:'pointer'}} onClick={() => navigate('/')} class="nav-link px-2 text-muted">Home</a></li>
-                            <li class="nav-item"><a style={{cursor:'pointer'}} onClick={() => navigate('/products')} class="nav-link px-2 text-muted">Products</a></li>
-                        </ul>
-                    </footer>
-                </div>
+                    <ul class="nav col-md-4 justify-content-end">
+                        <li class="nav-item"><a style={{ cursor: 'pointer' }} onClick={() => navigate('/')} class="nav-link px-2 text-muted">Home</a></li>
+                        <li class="nav-item"><a style={{ cursor: 'pointer' }} onClick={() => navigate('/products')} class="nav-link px-2 text-muted">Products</a></li>
+                    </ul>
+                </footer>
+            </div>
         </div>
     );
 }
