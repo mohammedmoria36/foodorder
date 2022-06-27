@@ -6,6 +6,16 @@ body {
   margin: 0;
 }
 
+a {
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: #4d090f;
+}
+
 .my-nav {
   background-color: #ef4f5f !important;
   z-index: 11;
@@ -78,6 +88,7 @@ button.light-btn {
   border-bottom: 1px solid gray;
   margin-bottom: 22px;
 }
+
 .prod-row:last-child {
   border-bottom: none;
 }
@@ -212,7 +223,7 @@ button.light-btn {
   border: none;
 }
 
-.cs-btn-primary:hover,.add-prod-btn button:hover{
+.cs-btn-primary:hover, .add-prod-btn button:hover {
   background-color: #940912;
   transition: 1s;
 }

@@ -8,7 +8,7 @@ function Nav() {
     return (
         <nav className="my-nav navbar navbar-expand-lg bg-light w-100 position-fixed">
             <div className="container">
-                <a className="navbar-brand" href="#">Foody</a>
+                <a className="navbar-brand" onClick={() => navigate('/')} >Foody</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
