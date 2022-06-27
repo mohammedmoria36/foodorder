@@ -9,6 +9,7 @@ body {
 .my-nav {
   background-color: #ef4f5f !important;
   z-index: 11;
+  border-bottom: 1px solid #838383;
 }
 
 .text-black {
@@ -71,6 +72,14 @@ button.light-btn {
 
 .cm-cont-css p {
   font-size: 16px;
+}
+
+.prod-row {
+  border-bottom: 1px solid gray;
+  margin-bottom: 22px;
+}
+.prod-row:last-child {
+  border-bottom: none;
 }
 
 .type-sym {

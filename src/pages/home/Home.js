@@ -23,7 +23,7 @@ function Home() {
                     <div className="header-btn">
                         <div className="container-fluid">
                             <div className="d-flex">
-                                <button className="dark-btn me-2" onClick={() => navigate('/products')}>Buy Now</button>
+                                <button className="dark-btn me-2" onClick={() => navigate('/products')}>Place order</button>
                                 <button className="light-btn">Download App</button>
                             </div>
                         </div>
